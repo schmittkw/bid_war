@@ -1,0 +1,46 @@
+<!-- {{ currentUser | json }} -->
+<h1>Welcome, {{ currentUser.name }}</h1>
+<button (click)="logout()">Logout</button>
+<!-- <p>ID: {{ currentUser._id }}</p>
+<p>CreatedAt: {{ currentUser.createdAt }}</p> -->
+<h3>Bid Now!</h3>
+<h4>Bid won't officially be placed until you place highest bid</h4>
+<table>
+    <tr>
+        <th>Product 1</th>
+        <th>Product 2</th>
+        <th>Product 3</th>
+    </tr>
+    <tr>
+        <td>
+            <form (submit)='makeProd1()'>
+                <input type="number" name="bid" [(ngModel)]='product11.bid'>
+                <input type="submit" value="Bid">
+            </form>
+        </td>
+        <td>
+            <form (submit)='makeProd2()'>
+                <input type="number" name="bid" [(ngModel)]='product22.bid'>
+                <input type="submit" value="Bid">
+            </form>
+        </td>
+        <td>
+            <form (submit)='makeProd3()'>
+                <input type="number" name="bid" [(ngModel)]='product33.bid'>
+                <input type="submit" value="Bid">
+            </form> 
+        </td>
+    </tr>
+    <tr>
+        <td>Current Bids:</td>
+        <td>Current Bids:</td>
+        <td>Current Bids:</td>
+    </tr>
+    <tr>
+        <td><div *ngIf='product1s'><div *ngFor='let prod of product1s'><p>{{ prod.user.name }}: ${{ prod.bid }}</p></div></div></td>
+        <td><div *ngIf='product2s'><div *ngFor='let prod of product2s'><p>{{ prod.user.name }}: ${{ prod.bid }}</p></div></div></td>
+        <td><div *ngIf='product3s'><div *ngFor='let prod of product3s'><p>{{ prod.user.name }}: ${{ prod.bid }}</p></div></div></td>
+    </tr>
+</table>
+<!-- <button [routerLink]="['/end-bid']">End Bid</button> -->
+<button (click)='endBid()'>End Bid</button>

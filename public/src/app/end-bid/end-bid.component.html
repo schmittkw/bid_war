@@ -1,0 +1,17 @@
+<h1>{{ currentUser.name }} has ended the bid.</h1>
+
+<h2>Highest Bidder per product</h2>
+
+<h3>Product 1</h3>
+<div *ngFor='let prod of product1s'><p>{{ prod.user.name }}: ${{ prod.bid }}</p></div>
+
+
+<h3>Product 2</h3>
+<div *ngFor='let prod of product2s'><p>{{ prod.user.name }}: ${{ prod.bid }}</p></div>
+
+
+<h3>Product 3</h3>
+<div *ngFor='let prod of product3s'><p>{{ prod.user.name }}: ${{ prod.bid }}</p></div>
+
+
+<Button (click)='removeAllBids()'>Start Bid</Button>
